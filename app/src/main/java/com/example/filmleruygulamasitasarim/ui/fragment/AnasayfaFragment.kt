@@ -33,6 +33,7 @@ class AnasayfaFragment : Fragment() {
         val f4=Filmler(4,"thehatefuleight","The Hateful Eight",14)
         val f5=Filmler(5,"thepianist","The Pianiat",20)
         val f6=Filmler(6,"anadoluda","Anadoluda",14)
+        //filmler eklendi
         filmlerList.add(f1)
         filmlerList.add(f2)
         filmlerList.add(f3)
