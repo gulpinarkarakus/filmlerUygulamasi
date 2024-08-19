@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/girisFragment">
+
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        android:name="com.example.filmleruygulamasitasarim.ui.fragment.AnasayfaFragment"
+        android:label="fragment_anasayfa"
+        tools:layout="@layout/fragment_anasayfa" >
+        <action
+            android:id="@+id/action_anasayfaFragment_to_detayFragment"
+            app:destination="@id/detayFragment" />
+        <action
+            android:id="@+id/action_anasayfaFragment_to_sepetFragment"
+            app:destination="@id/sepetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detayFragment"
+        android:name="com.example.filmleruygulamasitasarim.ui.fragment.DetayFragment"
+        android:label="fragment_detay"
+        tools:layout="@layout/fragment_detay" >
+        <argument
+            android:name="film"
+            app:argType="com.example.filmleruygulamasitasarim.data.entity.Filmler" />
+    </fragment>
+    <fragment
+        android:id="@+id/sepetFragment"
+        android:name="com.example.filmleruygulamasitasarim.ui.fragment.SepetFragment"
+        android:label="fragment_sepet"
+        tools:layout="@layout/fragment_sepet" />
+    <fragment
+        android:id="@+id/kayitGirisFragment"
+        android:name="com.example.filmleruygulamasitasarim.ui.fragment.KayitGirisFragment"
+        android:label="fragment_kayit_giris"
+        tools:layout="@layout/fragment_kayit_giris" >
+        <action
+            android:id="@+id/action_kayitGirisFragment_to_girisFragment"
+            app:destination="@id/girisFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/girisFragment"
+        android:name="com.example.filmleruygulamasitasarim.ui.fragment.GirisFragment"
+        android:label="fragment_giris"
+        tools:layout="@layout/fragment_giris" >
+        <action
+            android:id="@+id/action_girisFragment_to_kayitGirisFragment"
+            app:destination="@id/kayitGirisFragment" />
+        <action
+            android:id="@+id/action_girisFragment_to_anasayfaFragment"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
+</navigation>
