@@ -1,60 +1,50 @@
 package com.example.filmleruygulamasitasarim.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.filmleruygulamasitasarim.R
+import com.example.filmleruygulamasitasarim.data.entity.Filmler
+import com.example.filmleruygulamasitasarim.databinding.FragmentSepetBinding // Import the binding class
+import com.example.filmleruygulamasitasarim.ui.adapter.SepetAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SepetFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SepetFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var binding: FragmentSepetBinding
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sepet, container, false)
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SepetFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SepetFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
-}
+    ): View? {
+        binding = FragmentSepetBinding.inflate(inflater, container, false)
+        binding.toolbarSepet.title="Sepet"
+        //niye ekledim bilmiyorum
+        binding.sepetRV.layoutManager= StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+
+        //adapter için liste hazırladım (context ve list)
+        val filmlerList = ArrayList<Filmler>()
+        val f1=Filmler(1,"django","Django",24)
+        val f2=Filmler(2,"interstellar","Interstellar",20)
+        val f3=Filmler(3,"inception","Inception",27)
+        val f4=Filmler(4,"thehatefuleight","The Hateful Eight",14)
+        val f5=Filmler(5,"thepianist","The Pianiat",20)
+        val f6=Filmler(6,"anadoluda","Anadoluda",14)
+        //filmler eklendi
+
+        filmlerList.add(f1)
+        filmlerList.add(f2)
+        filmlerList.add(f3)
+        filmlerList.add(f4)
+        filmlerList.add(f5)
+        filmlerList.add(f6)
+
+        val sepetAdapter= SepetAdapter(requireContext(),filmlerList)
+        binding.sepetRV.adapter=sepetAdapter
+        return binding.root
+
+    }}

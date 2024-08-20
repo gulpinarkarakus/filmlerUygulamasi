@@ -29,7 +29,6 @@ class FilmlerAdapter(var mContext:Context,var filmlerList:List<Filmler>)
     }
 
 
-
     override fun onBindViewHolder(
         holder: CardTasarimTutucu,
         position: Int,
@@ -38,15 +37,13 @@ class FilmlerAdapter(var mContext:Context,var filmlerList:List<Filmler>)
 
         val t=holder.tasarim
       t.imageViewFilm.setImageResource(mContext.resources.getIdentifier(film.resim,"drawable",mContext.packageName))
-        //782024
         t.textViewFiyat.text="${film.fiyat }₺"
 
         t.cardviewDetay.setOnClickListener{
-            //bu calismadi!! val gecis = AnasayfaFragmentDirections.detayGecis(film=film)
 val gecis = AnasayfaFragmentDirections.actionAnasayfaFragmentToDetayFragment(film=film)
             Navigation.findNavController(it).navigate(gecis)
         }
-       t.buttonSepet.setOnClickListener{
+        t.buttonSepet.setOnClickListener{
            Snackbar.make(it,"${film.ad} sepete eklendi",Snackbar.LENGTH_SHORT).show()
        }
 
@@ -54,8 +51,7 @@ val gecis = AnasayfaFragmentDirections.actionAnasayfaFragmentToDetayFragment(fil
 
     override fun getItemCount(): Int {
         return filmlerList.size
-    }
+    }}
 
 
 
-}

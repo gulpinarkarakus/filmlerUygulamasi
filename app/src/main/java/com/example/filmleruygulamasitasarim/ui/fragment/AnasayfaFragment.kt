@@ -24,6 +24,7 @@ class AnasayfaFragment : Fragment() {
         binding = FragmentAnasayfaBinding.inflate(inflater, container, false)
         //TOOLBAR BASLİK KAÇ TANE KART YANYANA OLUCAK VE YÖNÜ
         binding.toolbarAnasayfa.title="FİLMLER"
+        //sepete eklemedim
         binding.filmRV.layoutManager= StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 //adapter için liste hazırladım (context ve list)
         val filmlerList = ArrayList<Filmler>()
@@ -34,6 +35,7 @@ class AnasayfaFragment : Fragment() {
         val f5=Filmler(5,"thepianist","The Pianiat",20)
         val f6=Filmler(6,"anadoluda","Anadoluda",14)
         //filmler eklendi
+
         filmlerList.add(f1)
         filmlerList.add(f2)
         filmlerList.add(f3)
