@@ -24,7 +24,7 @@ class SepetFragment : Fragment() {
         binding = FragmentSepetBinding.inflate(inflater, container, false)
         binding.toolbarSepet.title="Sepet"
         //niye ekledim bilmiyorum
-        binding.sepetRV.layoutManager= StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding.sepetRV.layoutManager= StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 
         //adapter için liste hazırladım (context ve list)
         val filmlerList = ArrayList<Filmler>()

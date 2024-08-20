@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/sepet_resim"
+
         app:layout_constraintBottom_toTopOf="@+id/filmRV"
         app:layout_constraintEnd_toEndOf="@+id/toolbarAnasayfa"
         app:layout_constraintTop_toTopOf="parent"
