@@ -2,6 +2,7 @@ package com.example.filmleruygulamasitasarim.ui.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -42,6 +43,7 @@ class SepetFragment : Fragment() {
 
         //data aktarma
         viewModel.readData.observe(viewLifecycleOwner, { filmlerList ->
+            Log.d("pınar", filmlerList.toString())
             sepetAdapter.submitList(filmlerList)
         })
 
