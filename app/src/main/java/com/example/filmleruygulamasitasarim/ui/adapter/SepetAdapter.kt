@@ -1,46 +1,45 @@
 package com.example.filmleruygulamasitasarim.ui.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filmleruygulamasitasarim.data.entity.Filmler
 import com.example.filmleruygulamasitasarim.databinding.SepetTasarimBinding
 
+class SepetAdapter(private val onRemoveClick: (Filmler) -> Unit) :
+    ListAdapter<Filmler, SepetAdapter.FilmlerViewHolder>(FilmlerDiffCallback()) {
 
-class SepetAdapter(var mContext:Context,var filmlerList:List<Filmler>)
-    :RecyclerView.Adapter<SepetAdapter.SepetTasarimTutucu>(){
-
-    inner class SepetTasarimTutucu(var tasarim: SepetTasarimBinding): RecyclerView.ViewHolder(tasarim.root)
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): SepetAdapter.SepetTasarimTutucu {
-        //chatten aldım
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmlerViewHolder {
         val binding = SepetTasarimBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return SepetTasarimTutucu(binding)
+        return FilmlerViewHolder(binding)
     }
 
-    override fun onBindViewHolder(
-        holder: SepetTasarimTutucu,
-        position: Int) {
-        val film=filmlerList.get(position)
-        val temp=holder.tasarim
-        temp.imageViewFilmSepet.setImageResource(mContext.resources.getIdentifier(film.resim,"drawable",mContext.packageName))
-        temp.textViewFiyatSepet.text="${film.fiyat }₺"
-
-
+    override fun onBindViewHolder(holder: FilmlerViewHolder, position: Int) {
+        val filmler = getItem(position)
+        holder.bind(filmler)
+        holder.binding.buttonSepet.setOnClickListener {
+            onRemoveClick(filmler)
+        }
     }
 
-
-
-
-    override fun getItemCount(): Int {
-        return filmlerList.size
+    class FilmlerViewHolder(val binding: SepetTasarimBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(filmler: Filmler) {
+            binding.filmler = filmler
+            binding.executePendingBindings()
+        }
     }
+}
+
+class FilmlerDiffCallback : DiffUtil.ItemCallback<Filmler>() {
+    override fun areItemsTheSame(oldItem: Filmler, newItem: Filmler): Boolean {
+        return oldItem.id == newItem.id
     }
-//ınıtle aktar
 
-
+    override fun areContentsTheSame(oldItem: Filmler, newItem: Filmler): Boolean {
+        return oldItem == newItem
+    }
+}
 

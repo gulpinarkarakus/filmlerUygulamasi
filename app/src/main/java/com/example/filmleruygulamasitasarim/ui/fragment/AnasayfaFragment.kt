@@ -6,23 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.filmleruygulamasitasarim.R
 import com.example.filmleruygulamasitasarim.data.entity.Filmler
 import com.example.filmleruygulamasitasarim.databinding.FragmentAnasayfaBinding
 import com.example.filmleruygulamasitasarim.ui.adapter.FilmlerAdapter
+import com.example.filmleruygulamasitasarim.room.FilmlerViewModel
 
 class AnasayfaFragment : Fragment() {
 
     private lateinit var binding: FragmentAnasayfaBinding
+    private val viewModel: FilmlerViewModel by viewModels()
 
     @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAnasayfaBinding.inflate(inflater, container, false)
 
         // Toolbar başlığını ayarla
@@ -50,9 +53,14 @@ class AnasayfaFragment : Fragment() {
             findNavController().navigate(R.id.action_anasayfaFragment_to_sepetFragment)
         }
 
-
+        // FilmlerAdapter içindeki butonlar için işlevleri tanımla
+        filmlerAdapter.onSepeteEkle = { film ->
+            viewModel.filmleriYukle(film)
         }
 
+        filmlerAdapter.onSepettenCikar = { film ->
+            viewModel.sepettenCikar(film)
+        }
 
         return binding.root
     }

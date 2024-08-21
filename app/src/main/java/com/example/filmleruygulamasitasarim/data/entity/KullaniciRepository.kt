@@ -8,7 +8,7 @@ class KullaniciRepository(private val kullaniciDao: KullaniciDao) {
     val readData: LiveData<List<Kullanicilar>> = kullaniciDao.realData()
 
     // Kullanıcıyı ekleme işlevi
-    suspend fun kullaniciEkle(kullanicilar: Kullanicilar) {
+     fun kullaniciEkle(kullanicilar: Kullanicilar) {
         kullaniciDao.kullaniciEkle(kullanicilar)
     }
 
