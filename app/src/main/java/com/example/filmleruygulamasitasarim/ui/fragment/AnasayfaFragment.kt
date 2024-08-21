@@ -50,6 +50,10 @@ class AnasayfaFragment : Fragment() {
             findNavController().navigate(R.id.action_anasayfaFragment_to_sepetFragment)
         }
 
+
+        }
+
+
         return binding.root
     }
 }

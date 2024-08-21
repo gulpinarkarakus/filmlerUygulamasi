@@ -8,7 +8,6 @@ import androidx.room.Query
 
 @Dao
 interface KullaniciDao {
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun kullaniciEkle(kullanicilar: Kullanicilar)
 
