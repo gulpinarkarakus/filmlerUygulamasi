@@ -55,11 +55,11 @@ class GirisFragment : Fragment() {
                     Toast.makeText(requireContext(), "Giriş başarılı!", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_girisFragment_to_anasayfaFragment)
                 } else {
-                    Snackbar.make(binding.root, "Hatalı email veya şifre!", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(binding.root, "Hatalı kullanıcı adı veya şifre!", Snackbar.LENGTH_LONG).show()
                 }
             })
         } else {
-            Snackbar.make(binding.root, "Email veya şifre boş olamaz!", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(binding.root, "Kullanıcı adı veya şifre boş olamaz!", Snackbar.LENGTH_LONG).show()
         }
     }
 

@@ -5,28 +5,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A0A0A0"
+    android:background="#FFFFFF"
     tools:context=".ui.fragment.SepetFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sepetRV"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarSepet" />
-
+    <!-- Toolbar tanımı -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarSepet"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#606060"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#F4C8F0"
+        android:title="Sepetim"
+        android:titleTextColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- RecyclerView tanımı -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sepetRV"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarSepet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 

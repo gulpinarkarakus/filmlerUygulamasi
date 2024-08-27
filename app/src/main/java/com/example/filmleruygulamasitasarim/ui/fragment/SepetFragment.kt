@@ -43,7 +43,7 @@ class SepetFragment : Fragment() {
 
         //data aktarma
         viewModel.readData.observe(viewLifecycleOwner, { filmlerList ->
-            Log.d("pınar", filmlerList.toString())
+
             sepetAdapter.submitList(filmlerList)
         })
 
