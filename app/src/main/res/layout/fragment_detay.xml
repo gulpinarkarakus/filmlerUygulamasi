@@ -4,25 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/arkaplan"
     tools:context=".ui.fragment.DetayFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarDetay"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#F4C8F0"
+        android:background="#F3D2D9"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageViewDetay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_width="238dp"
+        android:layout_height="352dp"
+        android:layout_marginTop="85dp"
         android:src="@drawable/inception"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -5,22 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/arkaplan"
     tools:context=".ui.fragment.SepetFragment">
 
     <!-- Toolbar tanımı -->
+
+    <!-- RecyclerView tanımı -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarSepet"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#F4C8F0"
+        android:background="#F3D2D9"
         android:title="Sepetim"
         android:titleTextColor="#FFFFFF"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- RecyclerView tanımı -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sepetRV"
         android:layout_width="0dp"

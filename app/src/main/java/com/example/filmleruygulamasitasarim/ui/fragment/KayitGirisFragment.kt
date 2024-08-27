@@ -47,7 +47,7 @@ class KayitGirisFragment : Fragment() {
     private fun insertDataToDataBase() {
         val mail = binding.kayitMail.text.toString()
         val parola = binding.kayitParola.text.toString()
-        val id = 0 // Sabit bir ID kullanıyoruz, eğer farklı bir ID kullanacaksanız bu kısmı değiştirin
+        val id = 0
 
         if (kontrol(mail, parola)) {
             val kullanici = Kullanicilar(0,mail, parola) // ID'nin manuel verilmesine gerek yok
@@ -56,10 +56,10 @@ class KayitGirisFragment : Fragment() {
             findNavController().navigate(com.example.filmleruygulamasitasarim.R.id.action_kayitGirisFragment_to_girisFragment)
         } else {
             // Hata mesajı gösterme
-            Snackbar.make(binding.root, "Email veya şifre boş olamaz!", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(binding.root, "Kullanıcı adı veya şifre boş olamaz!", Snackbar.LENGTH_LONG).show()
 
-            // Toolbar başlığını hata mesajı olarak değiştirme
-            (activity as? AppCompatActivity)?.supportActionBar?.title = "Hata: Email veya şifre boş"
+
+            (activity as? AppCompatActivity)?.supportActionBar?.title = "Hata: Kullanıcı adı veya şifre boş"
         }
     }
 

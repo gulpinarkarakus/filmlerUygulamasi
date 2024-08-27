@@ -18,8 +18,8 @@
         android:layout_height="45dp"
         android:layout_marginTop="240dp"
         android:background="@drawable/edittextarkaplan"
-        android:drawableLeft="@drawable/mail_siyah"
-        android:hint="ornek@gmail.com"
+        android:drawableLeft="@drawable/kullanici_adi"
+        android:hint=" Kullanıcı Adı"
         android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textSize="20sp"
@@ -35,7 +35,7 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/edittextarkaplan"
         android:drawableLeft="@drawable/sifre_giris"
-        android:hint="Parola"
+        android:hint="  Parola"
         android:inputType="textPassword"
         android:padding="10dp"
         android:textStyle="bold"
@@ -44,6 +44,9 @@
         app:layout_constraintTop_toBottomOf="@id/kayitMail" />
 
     <!-- CheckBox -->
+
+    <!-- "Üye Ol" Butonu -->
+
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="0dp"
@@ -52,10 +55,10 @@
         android:text="Yeniliklerden haberdar olmak için elektronik iletiye izin veriyorum"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/kayitParola" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword" />
 
-    <!-- "Üye Ol" Butonu -->
     <Button
         android:id="@+id/kayitGiris"
         android:layout_width="wrap_content"
@@ -80,5 +83,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/kayitGiris" />
+
+    <EditText
+        android:id="@+id/editTextNumberPassword"
+        android:layout_width="332dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:drawableLeft="@drawable/iletisim"
+        android:ems="10"
+        android:hint=" 053* *** ** **"
+        android:inputType="numberPassword"
+        app:layout_constraintEnd_toEndOf="@+id/kayitParola"
+        app:layout_constraintStart_toStartOf="@+id/kayitParola"
+        app:layout_constraintTop_toBottomOf="@+id/kayitParola" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
