@@ -31,7 +31,8 @@ class AnasayfaFragment : Fragment() {
         // Toolbar başlığını ayarla
         binding.toolbarAnasayfa.title = "FİLMLER"
 
-        // RecyclerView için StaggeredGridLayoutManager ayarla
+        // RecyclerView için StaggeredGridLayoutManager ayarladım
+        //ekranda ikişer tane gözükmesi
         binding.filmRV.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         // Film verilerini hazırla
@@ -48,6 +49,7 @@ class AnasayfaFragment : Fragment() {
         val filmlerAdapter = FilmlerAdapter(requireContext(), filmlerList)
         binding.filmRV.adapter = filmlerAdapter
 
+        //Sepet
         // Sepet butonuna tıklama işleyicisi ekle
         binding.ibSepet.setOnClickListener {
             findNavController().navigate(R.id.action_anasayfaFragment_to_sepetFragment)

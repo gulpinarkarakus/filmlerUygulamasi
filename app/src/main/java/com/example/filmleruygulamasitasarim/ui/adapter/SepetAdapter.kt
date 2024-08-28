@@ -20,7 +20,7 @@ class SepetAdapter(private val onRemoveClick: (Filmler) -> Unit) :
         val filmler = getItem(position)
         holder.bind(filmler)
 
-        // Sepet butonuna tıklama olayını ayarlayın
+        // Sepet butonuna tıklandığında filmleri çıkarır
         holder.binding.buttonSepet.setOnClickListener {
             onRemoveClick(filmler)
         }
@@ -31,24 +31,25 @@ class SepetAdapter(private val onRemoveClick: (Filmler) -> Unit) :
         fun bind(filmler: Filmler) {
             binding.filmler = filmler
 
-            // Resmi drawable'dan yükleyin
+            // Resmi drawable'dan yükler
             val context = binding.imageViewFilmSepet.context
             val resimId = context.resources.getIdentifier(filmler.resim, "drawable", context.packageName)
             binding.imageViewFilmSepet.setImageResource(resimId)
 
-            // Fiyatı göster
+            // Fiyatı gösterir
             binding.textViewFiyatSepet.text = "${filmler.fiyat} TL"
-
+           // verilerin kullanıcı arayüzünde (UI) hemen güncellenmesini sağlar.
             binding.executePendingBindings()
         }
     }
 }
 
 class FilmlerDiffCallback : DiffUtil.ItemCallback<Filmler>() {
+    // Eski ve yeni film öğelerinin aynı olup olmadığını kontrol eder
     override fun areItemsTheSame(oldItem: Filmler, newItem: Filmler): Boolean {
         return oldItem.id == newItem.id
     }
-
+    // Eski ve yeni film öğelerinin içeriklerinin aynı olup olmadığını kontrol eder
     override fun areContentsTheSame(oldItem: Filmler, newItem: Filmler): Boolean {
         return oldItem == newItem
     }

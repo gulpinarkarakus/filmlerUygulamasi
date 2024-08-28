@@ -31,13 +31,14 @@ class KayitGirisFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // "Giriş Yap" butonuna tıklama olayını ayarlar ve girisFragment'a geçiş yapar
         binding.kayitGiris2.setOnClickListener {
             findNavController().navigate(com.example.filmleruygulamasitasarim.R.id.action_kayitGirisFragment_to_girisFragment)
         }
 
-        // ViewModel'i başlatmak için ViewModelProvider kullanın
-        mKullaniciViewModel = ViewModelProvider(this).get(KullaniciViewModel::class.java)
 
+        mKullaniciViewModel = ViewModelProvider(this).get(KullaniciViewModel::class.java)
+        // "Kayıt Ol" butonuna tıklama olayını ayarlar ve veriyi veritabanına ekler
         binding.kayitGiris.setOnClickListener {
             insertDataToDataBase()
         }
@@ -45,12 +46,13 @@ class KayitGirisFragment : Fragment() {
 
     // Veritabanına veri ekleme
     private fun insertDataToDataBase() {
+        // Kullanıcı adı ve şifreyi alır
         val mail = binding.kayitMail.text.toString()
         val parola = binding.kayitParola.text.toString()
         val id = 0
 
         if (kontrol(mail, parola)) {
-            val kullanici = Kullanicilar(0,mail, parola) // ID'nin manuel verilmesine gerek yok
+            val kullanici = Kullanicilar(0,mail, parola)
             mKullaniciViewModel.kullaniciEkle(kullanici)
             Toast.makeText(requireContext(), "Üyeliğiniz başarıyla oluşturuldu", Toast.LENGTH_SHORT).show()
             findNavController().navigate(com.example.filmleruygulamasitasarim.R.id.action_kayitGirisFragment_to_girisFragment)

@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import org.jetbrains.annotations.NotNull
 import java.io.Serializable
 
-
+//data class veri tutmak
 //kullanıcağım parametreler
 @Entity(tableName="Filmler")
 data class Filmler(

@@ -20,13 +20,14 @@ class DetayFragment : Fragment() {
         binding = FragmentDetayBinding.inflate(inflater, container, false)
 
         val bundle: DetayFragmentArgs by navArgs()
+        //bundle kartın içindeki bilgiyi dataya aktarır
         val film=bundle.film
+        //toolbarda film adını gösterir
         binding.toolbarDetay.title=film.ad
+        // Film fiyatını TextView'de gösterir
         binding.textViewDetay.text="${film.fiyat}₺"
 
-//        binding.imageViewDetay.setImageResource(
-//            resources.getIdentifier(film.resim,"drawable",requireContext()packageName))
-
+        // Film resmini drawable kaynaklarından yükler
         val imageResource = resources.getIdentifier(film.resim, "drawable", requireContext().packageName)
         if (imageResource != 0) { // Kaynak bulunduysa
             binding.imageViewDetay.setImageResource(imageResource)

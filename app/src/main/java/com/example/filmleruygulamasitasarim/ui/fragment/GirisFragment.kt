@@ -30,7 +30,7 @@ class GirisFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // ViewModel'i başlatmak için ViewModelProvider kullanın
+
         mKullaniciViewModel = ViewModelProvider(this).get(KullaniciViewModel::class.java)
 
         // "Kayıt Ol" butonuna basıldığında kayıt ekranına yönlendirme

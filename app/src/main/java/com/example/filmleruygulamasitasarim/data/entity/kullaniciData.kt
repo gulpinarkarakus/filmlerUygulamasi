@@ -5,6 +5,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [Kullanicilar::class], version = 1, exportSchema = false)
+
+
+//room databse
+// // KullaniciDao arayüzünü sağlar. Bu, veritabanı ile etkileşimde bulunduğumuz kısım
 abstract class KullaniciData : RoomDatabase() {
 
     abstract fun kullaniciDao(): KullaniciDao

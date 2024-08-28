@@ -27,25 +27,25 @@ class SepetFragment : Fragment() {
 
         initViewModel()
 
-        // RecyclerView
+        // RecyclerView ayarları
         binding.toolbarSepet.title = "Sepet"
         binding.sepetRV.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 
-        // SepetAdapter ve sepete çıkarma
+        // SepetAdapter ve sepeten çıkarma
         sepetAdapter = SepetAdapter { filmler ->
             viewModel.sepettenCikar(filmler)
         }
-
+        // RecyclerView'a SepetAdapter'ı atar
         binding.sepetRV.adapter = sepetAdapter
 
-        // Data aktarımı
+        // Data aktarımı dinamik
         viewModel.readData.observe(viewLifecycleOwner, { filmlerList ->
-            sepetAdapter.submitList(filmlerList) // Data güncellmesi
+            sepetAdapter.submitList(filmlerList)
         })
 
         return binding.root
     }
-
+//verilerin korunmasını sağlar.
     private fun initViewModel() {
         viewModel = ViewModelProvider(this).get(FilmlerViewModel::class.java)
     }

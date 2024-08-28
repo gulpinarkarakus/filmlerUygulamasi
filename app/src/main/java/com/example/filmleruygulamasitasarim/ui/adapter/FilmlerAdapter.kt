@@ -17,7 +17,7 @@ class FilmlerAdapter(
     private val filmlerList: List<Filmler>
 ) : RecyclerView.Adapter<FilmlerAdapter.CardTasarimTutucu>() {
 
-    // Define callback variables
+// Bu fonksiyonlar, sepete ekleme ve sepette çıkarma işlemlerini yönetir
     var onSepeteEkle: ((Filmler) -> Unit)? = null
     var onSepettenCikar: ((Filmler) -> Unit)? = null
 
@@ -29,32 +29,33 @@ class FilmlerAdapter(
     }
 
     @SuppressLint("ResourceType")
+    //uı elementleri koda aktardım binding
     override fun onBindViewHolder(holder: CardTasarimTutucu, position: Int) {
         val film = filmlerList[position]
         val t = holder.tasarim
+        //detay frgamnet
+        // Film resmini ilgili drawable kaynağından yükler
         t.imageViewFilm.setImageResource(mContext.resources.getIdentifier(film.resim, "drawable", mContext.packageName))
+        // Film fiyatını TextView'e atar
         t.textViewFiyat.text = "${film.fiyat}₺"
-
+        // CardView'e tıklandığında, film detaylarına geçiş yapar
         t.cardviewDetay.setOnClickListener {
             val gecis = AnasayfaFragmentDirections.actionAnasayfaFragmentToDetayFragment(film = film)
             Navigation.findNavController(it).navigate(gecis)
         }
 
+        //sepet fragment
+        // Sepet butonuna tıklandığında, film sepete eklenir
         t.buttonSepet.setOnClickListener {
-            // Use the callback to add the film to the cart
             onSepeteEkle?.invoke(film)
             Snackbar.make(it, "${film.ad} sepete eklendi", Snackbar.LENGTH_SHORT).show()
         }
 
-        // Optional: Add functionality to remove items from the cart if needed
-        // Example:
-        // t.buttonRemoveFromCart.setOnClickListener {
-        //     onSepettenCikar?.invoke(film)
-        //     Snackbar.make(it, "${film.ad} sepetteki üründen çıkarıldı", Snackbar.LENGTH_SHORT).show()
-        // }
+
     }
 
     override fun getItemCount(): Int {
+        // Liste boyutunu döner.
         return filmlerList.size
     }
 }

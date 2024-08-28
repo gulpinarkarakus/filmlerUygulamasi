@@ -16,15 +16,17 @@ class FilmlerViewModel(application: Application) : AndroidViewModel(application)
     init {
         val filmlerDao = Veritabani.getData(application).filmlerDao()
         repository = FilmlerRepository(filmlerDao)
+
+        //Repository'den gelen veriyi gözlemler.
         readData = repository.readData
     }
-
+    // Yeni filmleri ekler.
     fun filmleriYukle(filmler: Filmler) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.filmleriYukle(filmler)
         }
     }
-
+    // Sepet içerisinden filmleri çıkarır.
     fun sepettenCikar(filmler: Filmler) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.sepettenCikar(filmler)
