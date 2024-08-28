@@ -2,7 +2,7 @@ package com.example.filmleruygulamasitasarim.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-//entityler ve datalar dinamik bilgi çekiceğimiz zaman kullandığımız yapılar
+// datalar dinamik bilgi
 @Entity(tableName = "kullanici_arayuz")
 data class Kullanicilar (
     @PrimaryKey(autoGenerate=true)

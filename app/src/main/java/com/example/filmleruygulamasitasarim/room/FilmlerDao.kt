@@ -18,5 +18,5 @@ interface FilmlerDao {
 
     // Sepetten film çıkarma
     @Delete
-     fun sepettenCikar(film: Filmler)
+    fun sepettenCikar(film: Filmler)
 }

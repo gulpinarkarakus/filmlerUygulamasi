@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull
 import java.io.Serializable
 
 
-
+//kullanıcağım parametreler
 @Entity(tableName="Filmler")
 data class Filmler(
     @PrimaryKey(autoGenerate=true)

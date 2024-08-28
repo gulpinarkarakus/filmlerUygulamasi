@@ -6,6 +6,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
+
+//fonk databaseden bilgileri çektim
 @Dao
 interface KullaniciDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)

@@ -1,8 +1,6 @@
 package com.example.filmleruygulamasitasarim.ui.fragment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +18,6 @@ class SepetFragment : Fragment() {
     private lateinit var viewModel: FilmlerViewModel
     private lateinit var sepetAdapter: SepetAdapter
 
-    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,23 +25,22 @@ class SepetFragment : Fragment() {
     ): View? {
         binding = FragmentSepetBinding.inflate(inflater, container, false)
 
-
         initViewModel()
 
         // RecyclerView
         binding.toolbarSepet.title = "Sepet"
         binding.sepetRV.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
 
-
+        // SepetAdapter ve sepete çıkarma
         sepetAdapter = SepetAdapter { filmler ->
             viewModel.sepettenCikar(filmler)
         }
+
         binding.sepetRV.adapter = sepetAdapter
 
-        //data aktarma
+        // Data aktarımı
         viewModel.readData.observe(viewLifecycleOwner, { filmlerList ->
-
-            sepetAdapter.submitList(filmlerList)
+            sepetAdapter.submitList(filmlerList) // Data güncellmesi
         })
 
         return binding.root
@@ -54,4 +50,3 @@ class SepetFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(FilmlerViewModel::class.java)
     }
 }
-

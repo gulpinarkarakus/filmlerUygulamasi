@@ -63,5 +63,4 @@ class AnasayfaFragment : Fragment() {
         }
 
         return binding.root
-    }
-}
+    }}

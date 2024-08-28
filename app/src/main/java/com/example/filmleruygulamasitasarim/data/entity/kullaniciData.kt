@@ -22,7 +22,7 @@ abstract class KullaniciData : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     KullaniciData::class.java,
-                    "kullanici_data" // Veritabanı adı burada doğru şekilde tanımlandı
+                    "kullanici_data"
                 ).build()
                 INSTANCE = instance
                 return instance
